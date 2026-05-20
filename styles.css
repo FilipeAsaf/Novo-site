@@ -1,0 +1,530 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --accent-color: #d4af37;
+    --text-light: #ccc;
+    --text-dark: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+/* HEADER E NAVEGAÇÃO */
+header {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--accent-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        padding: 20px;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(30px, -30px);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.hero .divider {
+    width: 80px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 20px auto 40px;
+}
+
+/* SEÇÕES GERAIS */
+section {
+    padding: 80px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+section h2 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin-top: 15px;
+}
+
+section p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+/* PORTFÓLIO */
+#portfolio {
+    background-color: #0a0a0a;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    aspect-ratio: 1;
+    background-color: #1a1a1a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.portfolio-item:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-item-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 20px;
+    color: var(--secondary-color);
+    font-size: 16px;
+    letter-spacing: 1px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-item-title {
+    transform: translateY(0);
+}
+
+.empty-portfolio {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-light);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* ORÇAMENTOS */
+#orcamentos {
+    background-color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--secondary-color);
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    background-color: #222;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* BOTÃO ELEGANTE */
+.btn,
+button[type="submit"],
+input[type="submit"] {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 14px 45px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before,
+button[type="submit"]::before,
+input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.btn:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+    color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn:hover::before,
+button[type="submit"]:hover::before,
+input[type="submit"]:hover::before {
+    left: 0;
+}
+
+/* CONTATO */
+#contato {
+    background-color: #0a0a0a;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.contact-item h3 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+}
+
+.contact-item p {
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.contact-item a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--primary-color);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    section h2 {
+        font-size: 32px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(212, 175, 55, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.portfolio-item:hover .play-button {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+} 
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #1a1a1a;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    cursor: default; /* importante: evita comportamento estranho */
+    aspect-ratio: auto; /* remove proporção quadrada */
+}
+
+/* Vídeo */
+.portfolio-item iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    background: transparent;
+}
+
+/* Imagens continuam normais */
+.portfolio-item img {
+    width: 100%;
+    height: 90%;
+    object-fit: center;
+    display: block;
+}
+
+/* Título do vídeo/imagem */
+.portfolio-item-title {
+    position: static;
+    background: #111;
+    padding: 15px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    transform: none;
+}
+
+/* Remove animação do título */
+.portfolio-item:hover .portfolio-item-title {
+    transform: none;
+}
+
+/* Garante que nada fique sobre o vídeo */
+.play-button,
+.portfolio-item::before,
+.portfolio-item::after {
+    pointer-events: none;
+}

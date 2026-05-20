@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitória Melo - Videomaker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVEGAÇÃO -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">VITÓRIA MELO</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#orcamentos" class="nav-link">Orçamentos</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">VITÓRIA MELO</h1>
+            <div class="hero-line"></div>
+            <p class="hero-subtitle">VIDEOMAKER | GARANHUNS-PE</p>
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">PORTFÓLIO</h2>
+            <p class="section-subtitle">Meus trabalhos e projetos</p>
+            
+            <div class="portfolio-grid" id="portfolioGrid">
+                <div class="portfolio-placeholder">
+                    <p>Seus trabalhos aparecerão aqui</p>
+                </div>
+            </div>
+
+            <div class="add-portfolio">
+                <p>+ Adicione seus trabalhos aqui</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORÇAMENTOS -->
+    <section id="orcamentos" class="orcamentos">
+        <div class="container">
+            <h2 class="section-title">SOLICITE SEU ORÇAMENTO</h2>
+            <p class="section-subtitle">Preencha o formulário abaixo</p>
+
+            <form class="orcamento-form" id="orcamentoForm">
+                <div class="form-group">
+                    <label for="nome">NOME</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipo">TIPO DE EVENTO</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="casamento">Casamento</option>
+                            <option value="aniversario">Aniversário</option>
+                            <option value="corporativo">Corporativo</option>
+                            <option value="publicidade">Publicidade</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">DATA</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade">CIDADE</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">DESCRIÇÃO DO PROJETO</label>
+                    <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o que você precisa..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">FALAR NO WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">ENTRE EM CONTATO</h2>
+            <p class="section-subtitle">Vamos conversar sobre seu projeto</p>
+            
+            <div class="contato-grid">
+                <div class="contato-item">
+                    <h3>WhatsApp</h3>
+                      <a href="https://wa.me/5587981534894" class="whatsapp-btn" target="_blank">(87) 98153-4894</a>
+                    
+                    </a>
+                </div>
+
+                <div class="contato-item">
+                    <h3>Email</h3>
+                    <a href="mailto:millenavitoria0107@gmail.com" class="contato-link">
+                        millenavitoria0107@gmail.com
+                    </a>
+                </div>
+
+                <div class="contato-item">
+                    <h3>Localização</h3>
+                    <p class="contato-text">Garanhuns - PE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Vitória Melo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
